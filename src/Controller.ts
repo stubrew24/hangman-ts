@@ -1,3 +1,5 @@
+import Model from "./Model";
+
 class Controller {
   private model;
   private view;
@@ -26,12 +28,20 @@ class Controller {
   };
 
   render() {
-    this.view.displayHits(this.model.hits);
-    if (this.checkGameWon()) return this.view.displayWin();
-    this.view.displayMisses(this.model.misses);
-    if (this.checkGameOver()) return this.view.displayGameOver();
-    this.view.displayAvailable(this.model.available);
+    const { view, model, reset } = this;
+    const { hits, misses, available } = model;
+    view.displayHits(hits);
+    if (this.checkGameWon()) return view.displayWin(reset);
+    view.displayMisses(misses);
+    if (this.checkGameOver())
+      return view.displayGameOver(model.word.join(""), reset);
+    view.displayAvailable(available, hits, misses);
   }
+
+  reset = () => {
+    this.model = new Model();
+    this.render();
+  };
 }
 
 export default Controller;

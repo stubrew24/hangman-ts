@@ -35,7 +35,7 @@ class Model {
       this.misses.push(letter);
       console.log("misses:", this.misses);
     }
-    this.available = this.available.filter(el => el !== letter);
+    // this.available = this.available.filter(el => el !== letter);
     return;
   }
 }

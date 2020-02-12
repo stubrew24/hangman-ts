@@ -1,19 +1,23 @@
 class View {
   private app: HTMLElement;
-  private availableLetters: HTMLElement;
+  private keyboard: HTMLElement;
   private hits: HTMLElement;
   private misses: HTMLElement;
   private word: HTMLElement;
+  private statusBar: HTMLElement;
+  private gameOverModal: HTMLElement;
 
   constructor() {
     this.app = this.getElement("#root");
 
-    this.availableLetters = this.createElement("div", "available");
+    this.keyboard = this.createElement("div", "keyboard");
     this.hits = this.createElement("div", "hits");
     this.misses = this.createElement("div", "misses");
     this.word = this.createElement("div", "word");
+    this.statusBar = this.createElement("div", "status-bar");
+    this.gameOverModal = this.createElement("div", "game-over");
 
-    this.app.append(this.availableLetters, this.hits, this.misses, this.word);
+    this.app.append(this.statusBar, this.hits, this.misses, this.keyboard);
   }
 
   createElement(tag: string, className?: string) {
@@ -33,12 +37,15 @@ class View {
     }
   }
 
-  displayAvailable(letters) {
-    this.clearElement(this.availableLetters);
+  displayAvailable(letters, hits, misses) {
+    this.clearElement(this.keyboard);
     letters.forEach(letter => {
       const btn = this.createElement("button", "letter-btn");
-      btn.textContent = letter;
-      this.availableLetters.append(btn);
+      btn.textContent = letter || ".";
+      if (hits.includes(letter) || misses.includes(letter)) {
+        (<HTMLButtonElement>btn).disabled = true;
+      }
+      this.keyboard.append(btn);
     });
   }
 
@@ -65,7 +72,7 @@ class View {
   }
 
   bindGuessLetter(handler) {
-    this.availableLetters.addEventListener("click", event => {
+    this.keyboard.addEventListener("click", event => {
       if ((<HTMLButtonElement>event.target).className === "letter-btn") {
         const letter = (<HTMLButtonElement>event.target).textContent;
         handler(letter);
@@ -73,12 +80,23 @@ class View {
     });
   }
 
-  displayWin() {
-    console.log("winner");
+  displayWin(handler) {
+    alert("you win!");
+    handler();
   }
 
-  displayGameOver() {
-    console.log("Loser");
+  displayGameOver(word, handler) {
+    const gameOverText = this.createElement("div", "game-over-text");
+    gameOverText.innerHTML = `Gameover! <br />The word was ${word}`;
+    const newGameButton = this.createElement("button", "new-game-btn");
+    newGameButton.textContent = "PLAY AGAIN";
+    newGameButton.addEventListener("click", () => {
+      this.gameOverModal.remove();
+      handler();
+    });
+    gameOverText.append(newGameButton);
+    this.gameOverModal.append(gameOverText);
+    this.app.append(this.gameOverModal);
   }
 }
 

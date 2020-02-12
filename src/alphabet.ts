@@ -20,11 +20,13 @@ const alphabet: string[] = [
   "S",
   "T",
   "U",
+  null,
   "V",
   "W",
   "X",
   "Y",
-  "Z"
+  "Z",
+  null
 ];
 
 export default alphabet;
