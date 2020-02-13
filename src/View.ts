@@ -16,6 +16,7 @@ class View {
     this.hits = this.createElement("div", "hits");
     this.misses = this.createElement("div", "misses");
     this.statusBar = this.createElement("div", "status-bar");
+    this.statusBar.textContent = "HANGMAN";
     this.gameEndModal = this.createElement("div", "game-end");
     this.showGraphic = this.createElement("pre", "graphic");
     this.app.append(
@@ -70,13 +71,9 @@ class View {
   displayMisses(letters) {
     this.misses.innerHTML = "";
     letters.forEach(letter => {
-      if (letter === null) {
-        this.misses.innerHTML += " _ ";
-      } else {
-        this.misses.innerHTML += ` ${letter} `;
-      }
+      this.misses.innerHTML += ` <span class="strikediag">${letter}</span> `;
     });
-    this.showGraphic.innerHTML = graphics[letters.length];
+    this.showGraphic.innerHTML = `<img src="./images/img${letters.length}.png"/>`;
   }
 
   bindGuessLetter(handler) {
