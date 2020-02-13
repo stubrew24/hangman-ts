@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#6600ff" />
+    <meta name="description" content="A simple hangman game." />
     <link rel="stylesheet" href="./style.css" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
@@ -19,7 +20,6 @@
       if ("serviceWorker" in navigator) {
         try {
           navigator.serviceWorker.register("serviceWorker.js");
-          console.log("Service worker registered");
         } catch (error) {
           console.log("Service Worker registration failed.");
         }

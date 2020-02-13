@@ -29,10 +29,8 @@ class Model {
           this.hits[idx] = letter;
         }
       });
-      console.log(this.hits);
     } else {
       this.misses.push(letter);
-      console.log("misses:", this.misses);
     }
     return;
   }

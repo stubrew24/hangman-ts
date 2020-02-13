@@ -73,7 +73,7 @@ class View {
     letters.forEach(letter => {
       this.misses.innerHTML += ` <span class="strikediag">${letter}</span> `;
     });
-    this.showGraphic.innerHTML = `<img src="./images/img${letters.length}.png"/>`;
+    this.showGraphic.innerHTML = `<img src="./images/img${letters.length}.png"/ alt="hangman graphic">`;
   }
 
   bindGuessLetter(handler) {
@@ -86,7 +86,6 @@ class View {
   }
 
   gameEnd(handler, outcome, word?) {
-    console.log(word);
     const gameEndText = this.createElement("div", "game-end-text");
     gameEndText.innerHTML =
       outcome === "win" ? "You win!" : `Gameover! <br />The word was ${word}`;
