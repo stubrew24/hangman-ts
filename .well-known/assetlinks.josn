@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "dev.stuartsewell.hangman",
+               "sha256_cert_fingerprints": ["77:B3:A0:6A:5B:4A:B5:73:83:B7:F9:DC:B4:87:FE:E6:D2:BD:05:96:1D:62:7E:31:39:03:57:3D:93:27:76:ED"] }
+}]
