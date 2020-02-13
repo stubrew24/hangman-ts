@@ -23,7 +23,6 @@ class Model {
 
   guessLetter(letter) {
     if (!this.available.includes(letter)) return null;
-    // console.log("word:", this.word);
     if (this.word.includes(letter)) {
       this.word.map((el, idx) => {
         if (el === letter) {
@@ -35,7 +34,6 @@ class Model {
       this.misses.push(letter);
       console.log("misses:", this.misses);
     }
-    // this.available = this.available.filter(el => el !== letter);
     return;
   }
 }

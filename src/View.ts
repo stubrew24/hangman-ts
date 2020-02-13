@@ -1,11 +1,13 @@
+import graphics from "./graphics";
+
 class View {
   private app: HTMLElement;
   private keyboard: HTMLElement;
   private hits: HTMLElement;
   private misses: HTMLElement;
-  private word: HTMLElement;
   private statusBar: HTMLElement;
-  private gameOverModal: HTMLElement;
+  private gameEndModal: HTMLElement;
+  private showGraphic: HTMLElement;
 
   constructor() {
     this.app = this.getElement("#root");
@@ -13,11 +15,16 @@ class View {
     this.keyboard = this.createElement("div", "keyboard");
     this.hits = this.createElement("div", "hits");
     this.misses = this.createElement("div", "misses");
-    this.word = this.createElement("div", "word");
     this.statusBar = this.createElement("div", "status-bar");
-    this.gameOverModal = this.createElement("div", "game-over");
-
-    this.app.append(this.statusBar, this.hits, this.misses, this.keyboard);
+    this.gameEndModal = this.createElement("div", "game-end");
+    this.showGraphic = this.createElement("pre", "graphic");
+    this.app.append(
+      this.statusBar,
+      this.hits,
+      this.showGraphic,
+      this.misses,
+      this.keyboard
+    );
   }
 
   createElement(tag: string, className?: string) {
@@ -69,6 +76,7 @@ class View {
         this.misses.innerHTML += ` ${letter} `;
       }
     });
+    this.showGraphic.innerHTML = graphics[letters.length];
   }
 
   bindGuessLetter(handler) {
@@ -80,23 +88,20 @@ class View {
     });
   }
 
-  displayWin(handler) {
-    alert("you win!");
-    handler();
-  }
-
-  displayGameOver(word, handler) {
-    const gameOverText = this.createElement("div", "game-over-text");
-    gameOverText.innerHTML = `Gameover! <br />The word was ${word}`;
+  gameEnd(handler, outcome, word?) {
+    console.log(word);
+    const gameEndText = this.createElement("div", "game-end-text");
+    gameEndText.innerHTML =
+      outcome === "win" ? "You win!" : `Gameover! <br />The word was ${word}`;
     const newGameButton = this.createElement("button", "new-game-btn");
     newGameButton.textContent = "PLAY AGAIN";
     newGameButton.addEventListener("click", () => {
-      this.gameOverModal.remove();
+      this.gameEndModal.remove();
       handler();
     });
-    gameOverText.append(newGameButton);
-    this.gameOverModal.append(gameOverText);
-    this.app.append(this.gameOverModal);
+    gameEndText.append(newGameButton);
+    this.gameEndModal.append(gameEndText);
+    this.app.append(this.gameEndModal);
   }
 }
 

@@ -24,17 +24,17 @@ class Controller {
   };
 
   checkGameOver = () => {
-    if (this.model.misses.length >= 8) return true;
+    if (this.model.misses.length >= 6) return true;
   };
 
   render() {
     const { view, model, reset } = this;
     const { hits, misses, available } = model;
     view.displayHits(hits);
-    if (this.checkGameWon()) return view.displayWin(reset);
+    if (this.checkGameWon()) return view.gameEnd(reset, "win");
     view.displayMisses(misses);
     if (this.checkGameOver())
-      return view.displayGameOver(model.word.join(""), reset);
+      return view.gameEnd(reset, "lose", model.word.join(""));
     view.displayAvailable(available, hits, misses);
   }
 
