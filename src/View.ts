@@ -96,6 +96,7 @@ class View {
       handler();
     });
     gameEndText.append(newGameButton);
+    this.gameEndModal.innerHTML = "";
     this.gameEndModal.append(gameEndText);
     this.app.append(this.gameEndModal);
   }
