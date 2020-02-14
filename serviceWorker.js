@@ -1,5 +1,8 @@
 const staticAssets = [
   "./",
+  "./index/html",
+  "./style.css",
+  "./bundle.js",
   "./images/img0.png",
   "./images/img6.png",
   "./images/img5.png",
@@ -8,9 +11,6 @@ const staticAssets = [
   "./images/img2.png",
   "./images/img1.png",
   "./images/logo.png",
-  "./index/html",
-  "./bundle.js",
-  "./style.css",
   "./manifest.json"
 ];
 
