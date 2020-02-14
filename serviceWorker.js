@@ -1,17 +1,17 @@
 const staticAssets = [
   "./",
-  "./index/html",
-  "./style.css",
-  "./bundle.js",
-  "./images/img0.png",
-  "./images/img6.png",
-  "./images/img5.png",
-  "./images/img4.png",
-  "./images/img3.png",
-  "./images/img2.png",
-  "./images/img1.png",
-  "./images/logo.png",
-  "./manifest.json"
+  "./public/index/html",
+  "./public/style.css",
+  "./public/bundle.js",
+  "./public/images/img0.png",
+  "./public/images/img6.png",
+  "./public/images/img5.png",
+  "./public/images/img4.png",
+  "./public/images/img3.png",
+  "./public/images/img2.png",
+  "./public/images/img1.png",
+  "./public/images/logo.png",
+  "./public/manifest.json"
 ];
 
 self.addEventListener("install", async event => {
