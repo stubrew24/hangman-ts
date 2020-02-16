@@ -8,7 +8,7 @@ class Model {
   private available: string[];
 
   constructor() {
-    console.log(process.env);
+    console.log(process.env.RAPID_API_KEY);
     this.available = [...alphabet];
 
     this.getWord();
