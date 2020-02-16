@@ -11,7 +11,8 @@ const staticAssets = [
   "./images/img2.png",
   "./images/img1.png",
   "./images/logo.png",
-  "./manifest.json"
+  "./manifest.json",
+  "./Pecita.otf"
 ];
 
 self.addEventListener("install", async event => {
