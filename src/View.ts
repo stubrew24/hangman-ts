@@ -16,7 +16,7 @@ class View {
     this.hits = this.createElement("div", "hits");
     this.misses = this.createElement("div", "misses");
     this.statusBar = this.createElement("div", "status-bar");
-    this.statusBar.textContent = "HANGMAN";
+    this.statusBar.innerHTML = "HANG_<span class='title-m'></span>AN";
     this.gameEndModal = this.createElement("div", "game-end");
     this.showGraphic = this.createElement("pre", "graphic");
     this.app.append(

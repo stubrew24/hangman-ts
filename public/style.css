@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Code+Pro&display=swap");
 
+@font-face {
+  font-family: "Pecita";
+  src: url("./Pecita.otf") format("opentype");
+}
+
 html,
 body {
   font-family: "Roboto Mono", sans-serif;
@@ -18,6 +23,17 @@ body {
   background-color: #fff;
   border: 3px solid #000;
   box-shadow: 10px 10px #0000ff;
+}
+
+.title-m::before {
+  content: "M";
+  font-family: "Pecita", sans-serif;
+  color: #ff00ff;
+  font-size: 46px;
+  position: relative;
+  top: -5px;
+  left: -36px;
+  letter-spacing: -50px;
 }
 
 .keyboard {
@@ -64,7 +80,7 @@ body {
   color: #fff;
   text-align: center;
   font-size: 42px;
-  letter-spacing: 6px;
+  letter-spacing: 10px;
 }
 
 .game-end {
