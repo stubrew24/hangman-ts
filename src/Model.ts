@@ -25,7 +25,6 @@ class Model {
   }
 
   async getWord() {
-    console.log("env", process.env.API);
     const res = await fetch(
       "https://wordsapiv1.p.rapidapi.com/words/?random=true",
       {

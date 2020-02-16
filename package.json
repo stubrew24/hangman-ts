@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
-    "dot-env": "0.0.1",
     "dotenv": "^8.2.0",
     "serve": "^11.3.0"
   }
