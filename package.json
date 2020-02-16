@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^13.7.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
     "uglifyjs-webpack-plugin": "^2.2.0",
@@ -19,6 +20,9 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "dot-env": "0.0.1",
+    "dotenv": "^8.2.0",
     "serve": "^11.3.0"
   }
 }
